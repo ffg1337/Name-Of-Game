@@ -1,0 +1,327 @@
+#:import Factory kivy.factory.Factory
+#:import ReaderS text_reader.ReaderS
+
+<Text@RstDocument>:
+#    text_scene : text_scene
+#    id:text_scene
+    font_size:20
+    size_hint:1, 0.4
+    pos_hint:{'top': .5}
+    #text : Factory.ReaderS.get_text(text)
+    #text:
+
+
+<Exemple1Screen@TypeScreen>:
+
+    FloatLayout:
+
+        ImgLoader:
+            source: '../img/main.jpg'
+
+
+            #text : Factory.ReaderS().check_scene()
+
+    #text:"0"
+
+<ScreenOfNewGame1@Exemple1Screen>:
+    Exemple1Screen:
+            #
+            #id:text_scene
+
+            #text: Factory.SaveLoad().get_text(text_scene)
+            #text: Factory.SaveLoad().get_text(text_scene)
+            #text: 'Привет, в этой игре тебе нужно выбирать те ответы на вопросы которве ты сам бы выбрал. ' + 'Можно считать что это типо обучения'
+            #text: Factory.SaveLoad.txt(self)
+            #text: Factory.scenes_builder(self)
+
+            #text: Factory.ScreenOfNewGame().test(self)
+        #self.parent. + '00'
+
+
+        Button1:
+            pos_hint:{'right': 1.0}
+            text:'Нет' #todo &#8656
+            on_press:
+                
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
+        Button1:
+            pos_hint:{'right': 0.7}
+            text:'Lie' #todo &#8656
+            size_hint:0.4, 0.07
+            on_press:
+
+                #app.root.self.parent.
+                
+                #Factory.Text().__init__(self, **kwargs)
+
+
+        Button1:
+            pos_hint:{'left': 0.1}
+            text:'Да' #todo &#8656
+            on_press:
+                root.manager.transition.duration = 0.1
+                root.manager.current = 'ScreenOfNewGame2'
+                Factory.SaveLoad().save('#1',' 2',' False' ,' Begin Game ')
+                #
+                #Factory.Text().strin = '123'
+                #Factory.ReaderS().check_scene()
+
+
+                #self.parent. + '01'
+
+
+            on_release:
+                #Factory.ReaderS().check_scene()
+                #Factory.ScreenOfNewGame2().test(test_text)
+
+
+
+                #Factory.ReaderS().check_scene()
+        #Text:
+            #id : fuck
+        #    text:Factory.ReaderS().check_scene()
+
+            #Factory.Text().call(None)
+        Text:
+            #id:fuck
+
+
+<ScreenOfNewGame2>:
+
+    Exemple1Screen:
+
+            #text: Factory.ReaderS().check_scene()
+
+            #text: Factory.ScreenOfNewGame2().test(test_text)
+
+            #text: Factory.ScreenOfNewGaame2().textt()
+            #text:Factory.ReaderS().check_scene()
+            #text : Factory.ReaderS().check_scene()
+
+
+
+        Button1:
+            pos_hint:{'right': 1.0}
+            text:'Нет' #todo &#8656
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
+        Button1:
+            pos_hint:{'right': 0.7}
+            text:'Lie' #todo &#8656
+            size_hint:0.4, 0.07
+
+
+            on_press:
+                
+
+
+
+
+        Button1:
+            pos_hint:{'left': 0.1}
+            text:'Да' #todo &#8656
+            on_press:
+                root.manager.current = 'ScreenOfNewGame3'
+                Factory.SaveLoad().save('#1',' 3',' False' ,' Begin Game ')
+               
+                
+
+        Text:
+            id:fuck
+            text : Factory.ReaderS().check_scene(root.name)
+<ScreenOfNewGame3>:
+    Exemple1Screen:
+
+            #text : 'дарова я карова'
+
+        Button1:
+            pos_hint:{'right': 1.0}
+            text:'Нет' #todo &#8656
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
+        Button1:
+            pos_hint:{'right': 0.7}
+            text:'Lie' #todo &#8656
+            size_hint:0.4, 0.07
+            on_press:
+                
+        Button1:
+            pos_hint:{'left': 0.1}
+            text:'Да' #todo &#8656
+            on_press:
+                root.manager.current = 'ScreenOfNewGame4'
+                Factory.SaveLoad().save('#1',' 4',' False' ,' Begin Game ')
+                
+        Text:
+            text : Factory.ReaderS().check_scene(root.name)
+
+<ScreenOfNewGame4>:
+    Exemple1Screen:
+        Text:
+            id : fuck
+
+        Button1:
+            pos_hint:{'right': 1.0}
+            text:'Нет' #todo &#8656
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
+        Button1:
+            pos_hint:{'right': 0.7}
+            text:'Lie' #todo &#8656
+            size_hint:0.4, 0.07
+            on_press:
+                
+        Button1:
+            pos_hint:{'left': 0.1}
+            text:'Да' #todo &#8656
+            on_press:
+                root.manager.current = 'ScreenOfNewGame5'
+                Factory.SaveLoad().save('#1',' 5',' False' ,' Begin Game ')
+
+        Text:
+            text : Factory.ReaderS().check_scene(root.name)
+
+<ScreenOfNewGame5>:
+    Exemple1Screen:
+        Text:
+
+        Button1:
+            pos_hint:{'right': 1.0}
+            text:'Нет' #todo &#8656
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
+        Button1:
+            pos_hint:{'right': 0.7}
+            text:'Lie' #todo &#8656
+            size_hint:0.4, 0.07
+            on_press:
+                
+        Button1:
+            pos_hint:{'left': 0.1}
+            text:'Да' #todo &#8656
+            on_press:
+                root.manager.current = 'ScreenOfNewGame6'
+                Factory.SaveLoad().save('#1',' 6',' True' ,' Begin Game ')
+        Text:
+            text : Factory.ReaderS().check_scene(root.name)
+
+<ScreenOfNewGame6>:
+    Exemple1Screen:
+        Text:
+            
+
+        Button1:
+            pos_hint:{'right': 1.0}
+            text:'Нет' #todo &#8656
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
+        Button1:
+            pos_hint:{'right': 0.7}
+            text:'Lie' #todo &#8656
+            size_hint:0.4, 0.07
+            on_press:
+                
+        Button1:
+            pos_hint:{'left': 0.1}
+            text:'Да' #todo &#8656
+            on_press:
+                root.manager.current = 'ScreenOfNewGame7'
+                Factory.SaveLoad().save('#1',' 7',' True' ,' Begin Game ')
+        Text:
+            text : Factory.ReaderS().check_scene(root.name)
+
+<ScreenOfNewGame7>:
+    Exemple1Screen:
+        Text:
+            id:text_doc
+        Button1:
+            pos_hint:{'right': 1.0}
+            text:'Нет' #todo &#8656
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
+        Button1:
+            pos_hint:{'right': 0.7}
+            text:'Lie' #todo &#8656
+            size_hint:0.4, 0.07
+            on_press:
+
+        Button1:
+            pos_hint:{'left': 0.1}
+            text:'Да' #todo &#8656
+            on_press:
+                root.manager.current = 'ScreenOfNewGame8'
+                Factory.SaveLoad().save('#1',' 8',' True' ,' Begin Game ')
+        Text:
+            text : Factory.ReaderS().check_scene(root.name)
+
+<ScreenOfNewGame8>:
+    Exemple1Screen:
+        Text:
+            id:text_doc
+        Button1:
+            pos_hint:{'right': 1.0}
+            text:'Нет' #todo &#8656
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
+        Button1:
+            pos_hint:{'right': 0.7}
+            text:'Lie' #todo &#8656
+            size_hint:0.4, 0.07
+            on_press:
+
+        Button1:
+            pos_hint:{'left': 0.1}
+            text:'Да' #todo &#8656
+            on_press:
+                root.manager.current = 'ScreenOfNewGame9'
+                Factory.SaveLoad().save('#1',' 9',' True' ,' End Game ')
+        Text:
+            text : Factory.ReaderS().check_scene(root.name)
+
+<ScreenOfNewGame9>:
+    Exemple1Screen:
+        Text:
+            id:text_doc
+        Button1:
+            pos_hint:{'right': 1.0}
+            text:'Нет' #todo &#8656
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
+        Button1:
+            pos_hint:{'right': 0.7}
+            text:'Lie' #todo &#8656
+            size_hint:0.4, 0.07
+            on_press:
+
+        Button1:
+            pos_hint:{'left': 0.1}
+            text:'Да' #todo &#8656
+            on_press:
+                root.manager.current = 'ScreenOfNewGame10'
+                Factory.SaveLoad().save('#1',' 10',' True' ,' End Game ')
+        Text:
+            text : Factory.ReaderS().check_scene(root.name)
+
+<ScreenOfNewGame10>:
+    Button:
+        text:"101"
+        on_press:
+
+            Factory.SaveLoad().save('#1',' 10',' True' ,' End Game ')
+    Button:
+        text:"check"
+        on_press:
+            Factory.SaveLoad().check()
+    Text:
+        
+
+<ScreenOf>:

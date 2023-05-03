@@ -1,0 +1,114 @@
+#:import Factory kivy.factory.Factory
+
+
+#:import all.Reader.get_text text_reader
+
+<NewGameChecker@Popup>:
+    font_name: "DD.ttf"
+    font_size: '20sp'
+    title_align: 'center'
+    title: ''
+    separator_height: 0
+    auto_dismiss: False
+    size_hint:.85, .3
+    AnchorLayout:
+        pos:self.pos
+        ImgLoader:
+            source:'../img/main.jpg'
+        BoxLayout:
+            Label:
+                font_size:dp(8)
+                text: 'Уверены что хотите начать новую игру? \n       Прошлое сохранение удалиться'
+                pos_hint:{'x':1,'y':.1}
+        BoxLayout:
+            orientation:'horizontal'
+            spacing:30
+            padding:dp(10)
+            MainButton:
+                font_size:dp(16)
+                text: 'Назад'
+                on_release: root.dismiss()
+                size_hint:.1, 0.3
+                pos_hint:{'x': 0 , 'y': .1}
+            MainButton:
+                font_size:dp(16)
+                text: 'Ок'
+                on_release: root.dismiss()
+                size_hint:.1, 0.3
+                pos_hint:{'x': 1-0.3 , 'y': .1}
+
+
+
+<Button1@Button>:
+    size_hint:0.2, 0.5
+    font_size:dp(14)
+    size_hint:0.3, 0.07
+    on_release:
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ScreenOfNewGame0>:
+    name : 'ScreenOfNewGame0'
+
+    transition: CardTransition()
+    ImgLoader:
+        source: '../img/main.jpg'
+    FloatLayout:
+
+        Label:
+            pos_hint: {'x':0.25 ,'y': 0.76}
+            size_hint: 0.5, 0.05
+            text_size: self.size
+            text:"Name Of Game"
+            font_size:20
+            background_color:(0,0,0,1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+
+            padding:dp(20),dp(4)
+            #pos_hint: {'x':1 ,'y': 1}
+        Label:
+            font_size:'10sp'
+            text:("fffffffffffffffffffffffffffffffffffffffffffffffffffff \n this game so good\n \n this game so good\n this game so good\n this game so good\n this game so good\n ")
+    HowWidget:
+
+        spacing:dp(15)
+        padding:dp(20)
+        Button:     #text:'Об авторе \n       и \n    Игре'
+            font_size:dp(14)
+            size_hint:0.2, 0.5
+
+            text:'назад' #todo &#8656
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
+        Button:     #text:'Об авторе \n       и \n    Игре'
+
+            font_size:dp(14)
+            size_hint:0.8, 0.5
+            text:'Новая Игра' #todo &#8656
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'ScreenOfNewGame1'
+                Factory.SaveLoad().reset_save()
+                Factory.SaveLoad().save('#1',' 1',' True' ,' Begin Game ')
+
+
+
+
+
+

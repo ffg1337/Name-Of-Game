@@ -1,0 +1,61 @@
+<AboutGameScreen>:
+    transition: CardTransition()
+
+    ImgLoader:
+        source: '../img/main.jpg'
+    FloatLayout:
+        padding:(dp(35),dp(65)) #40 #80
+        Label:
+            text:"Name Of Game"
+            font_size : '20dp'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            pos_hint:{'top': 0.75,'right' : 0.8}
+
+            size_hint: 0.6, 0.1
+
+
+            #background under text#
+            background_color:(0,0,0,1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+        Label:
+            text:("fffffffffffffffffffffffffffffffffffffffffffffffffffff \n this game so good\n \n this game so good\n this game so good\n this game so good\n this game so good\n ")
+            font_size:'10sp'
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+
+            anchor_x:'left'
+            anchor_y:'up'
+
+            size: self.texture_size
+            padding:dp(30),dp(4)
+
+
+
+
+
+    HowWidget:
+        padding:dp(20)
+        spacing:dp(150)
+        Button:     #text:'Об авторе \n       и \n    Игре'
+            anchor_x:'left'
+            size_hint:0.1, 0.5
+            text:'назад' #todo &#8656
+            on_press:
+                root.manager.transition.direction = 'up'
+                root.manager.current = 'menu'
+        Button:     #text:'Об авторе \n       и \n    Игре'
+            anchor_x:'right'
+            size_hint:0.1, 0.5
+            text:'тык' #todo &#8656
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'menu'
+                Factory.AboutGameScreen().open_browser()

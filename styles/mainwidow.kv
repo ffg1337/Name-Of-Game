@@ -1,0 +1,172 @@
+#:import Factory kivy.factory.Factory
+#:import CardTransition kivy.uix.screenmanager.CardTransition
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+#:set default_font_size "326sp"
+############################################################
+
+#<ImgLoaders@Image>:
+#    canvas:
+#        Rectangle:
+ #           pos: self.parent.pos
+ #           size: self.parent.width , self.parent.height
+ #           source: '../img/names.jpg'
+############################################################
+
+<ImgLoader@Image>:
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.parent.width , self.parent.height
+            source: self.source
+<MyPopups@Popup>:
+    font_name: "../DD.ttf"
+    font_size: '20sp'
+    title_align: 'center'
+    title: ""                 # <<<<<<<<
+    separator_height: 0       # <<<<<<<<
+    auto_dismiss: False
+    size_hint:.7, .3
+    AnchorLayout:
+        pos:self.pos
+        ImgLoader:
+            source:'../img/main.jpg'
+        BoxLayout:
+            Label:
+                text: 'Выйти из игры?'
+                pos_hint:{'x':1,'y':.1}
+        BoxLayout:
+            orientation:'horizontal'
+            spacing:30
+            padding:dp(10)
+
+            MainButton:
+                text: 'Нет'
+                on_release: root.dismiss()
+                size_hint:.1, 0.3
+                pos_hint:{'x': 1-0.3 , 'y': .1}
+            MainButton:
+                text: 'Да'
+                on_release:app.stop()
+                size_hint:.1, 0.3
+                pos_hint:{'x': 0 , 'y': .1}
+<MainButton@Button>:
+    font_size : '20dp'
+    size_hint:0.9, 0.03
+    pos_hint:{'x': 0.05 , 'y': 1}
+    text:"12312312312312"
+    FloatLayout:
+
+<HowWidget@BoxLayout>:
+    size_hint:1, 0.17
+    pos_hint:{'bottom': 1}
+    padding:dp(20)
+    #spacing:5
+
+<Chlen@BoxLayout>:
+    Button:
+        text: huy
+
+<Label>:
+    font_name: "../fonts/DD.ttf"
+    font_size: '20sp'
+<MenuScreen>:
+    transition: FadeTransition()
+    secret_label:secret_label
+
+    ImgLoader:
+        source: '../img/main.jpg'
+    FloatLayout:
+        size: self.parent.width , self.parent.height
+    # SECRETS
+        FloatLayout:
+            size_hint:1, .5
+            Button:
+                size_hint:0.08, 0.08
+                pos_hint:{'bottom': 1,'left' : 1}
+                on_release :
+                    Factory.SecretClass().secret_def(secret_label)
+                    Factory.SecretClass().count(secret_label)
+
+                background_color: (0.7 ,0.5 , 0.6, 0.3)
+            Label:
+                padding:dp(5),dp(5) #40 #80
+                id:secret_label
+                text:''
+                size_hint:1, 0.15
+                pos_hint: {'bottom': 0 , 'left': .5}
+    # NAME
+        BoxLayout: #color:0, 1, 0, 1
+            orientation:'vertical'
+            padding:(dp(35),dp(65)) #40 #80
+            spacing:5
+            AnchorLayout:
+                size_hint: 1, 0.25
+                Label:
+                    text_size: self.size
+                    text:"Name Of Game"
+                    halign: 'center'
+                    valign: 'middle'
+                    font_size: '20sp'
+
+                    id:lols
+                    background_color:(0,0,0,1)
+                    canvas.before:
+                        Color:
+                            rgba: self.background_color
+                        Rectangle:
+                            size:self.size
+                            pos:self.pos
+                    size_hint: 0.8, 0.25
+                    #padding:dp(5),dp(20)
+                    #pos_hint: {'x':.30 ,'y': 0}
+
+        # BUTTONS
+            BoxLayout:
+                orientation:'vertical'
+                size_hint:1, .25
+                pos_hint:{'bottom': 1}
+                spacing:15
+
+                MainButton:
+                    text:'Новая  игра'
+                    on_press:
+                        #Factory.PopupsOfNewGame().open()
+                        root.manager.transition.duration = 1
+                        Factory.NewGameChecker().open()
+                        root.manager.current = 'ScreenOfNewGame0'
+                        root.manager.transition.duration = 0.4
+
+
+                MainButton:
+                    text:'Продолжить'
+
+                    on_press:
+                        root.manager.transition.direction = 'up'
+                        root.manager.current = Factory.SaveLoad().continue_game()
+
+                MainButton:
+                    text:'Об игре'
+                    on_press:
+
+                        root.manager.transition.duration = 1
+                        root.manager.transition.direction = 'down'
+                        root.manager.current = 'AboutGameScreen'
+                MainButton:
+
+                    text:'Выход'
+                    on_press : Factory.MyPopups().open()
+##
+#NoTransition – switches screens instantly with no animation
+#SlideTransition – slide the screen in/out, from any direction
+#CardTransition – new screen slides on the previous or the old one slides off the new one depending on the mode
+#SwapTransition – implementation of the iOS swap transition
+#FadeTransition – shader to fade the screen in/out
+#WipeTransition – shader to wipe the screens from right to left
+#FallOutTransition – shader where the old screen ‘falls’ and becomes transparent, revealing the new one behind it.
+#RiseInTransition – shader where the new screen rises from the screen center while fading from transparent to opaque.
+#class YourApp(App):
+#    font_size = NumericProperty(20)
+#Затем в кв
+
+#font_size: app.font_size
